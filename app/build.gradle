@@ -17,6 +17,21 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    aaptOptions {
+        cruncherEnabled = false
+    }
+    sourceSets {
+        main {
+            res.srcDirs =
+                    [
+                            'src/main/res/layout/Main',
+                            'src/main/res/layout/LocalUpload',
+                            'src/main/res/layout/title',
+                            'src/main/res/layout',
+                            'src/main/res'
+                    ]
+        }
+    }
 }
 
 dependencies {

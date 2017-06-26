@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#FFFFFF"
+    android:layout_height="match_parent"
+    tools:context="com.example.admin.videotest3.chActivity.TakeUploadActivity">
+    <!--
+        <com.example.admin.videotest3.myclass.TitleLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </com.example.admin.videotest3.myclass.TitleLayout>
+
+        <Button
+            android:id="@+id/button_start_take_video"
+            android:layout_width="368dp"
+            android:layout_height="wrap_content"
+            android:text="开始拍摄"
+            tools:layout_editor_absoluteY="0dp"
+            tools:layout_editor_absoluteX="8dp" />
+
+        <VideoView
+            android:id="@+id/video_taking"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteY="0dp"
+            tools:layout_editor_absoluteX="8dp" />
+            -->
+
+    <SurfaceView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/camera_surfaceview"/>
+    <TextView android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="计时区域"
+        android:id="@+id/camera_time"/>
+    <LinearLayout android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+        <Button android:layout_height="30dp"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape_main"
+            android:id="@+id/camera_photo"
+            android:layout_marginLeft="5dp"
+            android:textColor="#FFFFFF"
+            android:layout_marginRight="5dp"
+            android:text="照片摄取"/>
+        <Button android:layout_height="30dp"
+            android:layout_marginBottom="20dp"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/shape_main"
+            android:id="@+id/camera_vedio"
+            android:layout_marginLeft="5dp"
+            android:textColor="#FFFFFF"
+            android:layout_marginRight="5dp"
+            android:text="视频摄取"/>
+    </LinearLayout>
+
+</RelativeLayout>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.admin.videotest3.MainActivity">
+    tools:context="com.example.admin.videotest3.chActivity.MainActivity">
 
     <android.support.design.widget.TabLayout
         android:id="@+id/tab_layout"
@@ -18,12 +18,6 @@
 
         />
 
-    <View
-        android:id="@+id/view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
 
-
-        />
 
 </RelativeLayout>

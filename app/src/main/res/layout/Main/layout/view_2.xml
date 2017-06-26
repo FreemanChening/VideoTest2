@@ -10,9 +10,15 @@
         android:background="#00000000"/>
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/button_takeupload"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add"/>
+        android:text="我要拍摄上传"/>
+
+    <Button
+        android:id="@+id/button_localupload"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="本地视频上传"/>
 
 </LinearLayout>

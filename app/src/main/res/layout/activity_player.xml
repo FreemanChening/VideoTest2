@@ -4,6 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.admin.videotest3.View1Activity">
+    tools:context="com.example.admin.videotest3.chActivity.PlayerActivity">
+
+    <include layout="@layout/list_player"/>
+
 
 </android.support.constraint.ConstraintLayout>

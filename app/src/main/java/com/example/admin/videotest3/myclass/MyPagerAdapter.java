@@ -1,4 +1,4 @@
-package com.example.admin.videotest3;
+package com.example.admin.videotest3.myclass;
 
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
