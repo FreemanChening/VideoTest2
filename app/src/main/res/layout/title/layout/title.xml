@@ -9,22 +9,22 @@
     <Button
         android:id="@+id/title_back"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_gravity="center"
         android:layout_margin="5dp"
-        android:background="@drawable/title_back"
+        android:background="#00000000"
         android:text="Back"
         android:textColor="#fff"/>
 
     <TextView
         android:id="@+id/title_text"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_gravity="center"
         android:layout_weight="1"
         android:gravity="center"
         android:textColor="#fff"
-        android:text="Title Text"
+        android:text="Funny Video"
         android:textSize="24sp"/>
 
     <Button
@@ -33,8 +33,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="5dp"
-        android:background="@drawable/title_edit"
-        android:text="Edit"
+        android:background="#00000000"
+        android:text="Delete"
         android:textColor="#fff"/>
 
 </LinearLayout>

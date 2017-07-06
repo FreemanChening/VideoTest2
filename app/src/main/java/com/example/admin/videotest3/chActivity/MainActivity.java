@@ -68,19 +68,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Button button_takeUp = (Button) view2.findViewById(R.id.button_takeupload);
         Button button_localUp = (Button) view2.findViewById(R.id.button_localupload);
+        Button button_lovelist = (Button) view2.findViewById(R.id.button_lovelist);
+        Button button_collectlist = (Button) view2.findViewById(R.id.button_collectlist) ;
         button_takeUp.setOnClickListener(this);
         button_localUp.setOnClickListener(this);
+        button_lovelist.setOnClickListener(this);
+        button_collectlist.setOnClickListener(this);
+
 
         initThumbnail();
         ThumbnailAdapter adapter = new ThumbnailAdapter(MainActivity.this,R.layout.thumbnail_item,ThumbnailList);
         ListView listView = (ListView) view1.findViewById(R.id.list_view);
-        /*
-        Button button_appreciate = (Button)view1.findViewById(R.id.button_appreciate);
-        Button button_collect = (Button)view1.findViewById(R.id.button_collect);
-        button_appreciate.setOnClickListener(this);
-        button_collect.setOnClickListener(this);*/
         listView.setAdapter(adapter);
         //Toast.makeText(MainActivity.this,"made",Toast.LENGTH_SHORT).show();
+
+        /**
+               * 响应ListView中item的点击事件
+               */
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id){
@@ -88,11 +92,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 //Toast.makeText(MainActivity.this,thumbnail.getTitle(),Toast.LENGTH_SHORT).show();
                 Toast.makeText(MainActivity.this,thumbnail.getId(),Toast.LENGTH_SHORT).show();
 
+                Button button_appreciate = (Button)view1.findViewById(R.id.button_appreciate);
+                Button button_collect = (Button)view1.findViewById(R.id.button_collect);
+                button_appreciate.setOnClickListener(new Button.OnClickListener(){
+                    public void onClick(View v) {
+                        Toast.makeText(MainActivity.this,"已确认喜爱",Toast.LENGTH_SHORT).show();
+                    }
+                });
+                button_collect.setOnClickListener(new Button.OnClickListener(){
+                    public void onClick(View v) {
+                        Toast.makeText(MainActivity.this,"已添加到收藏夹",Toast.LENGTH_SHORT).show();
+                    }
+                });
                 go2Player(thumbnail.getId()); // 跳转到播放界面
                 /*Intent i = new Intent(MainActivity.this, PlayActivity.class);
                 MainActivity.this.startActivity(i);*/
             }
         });
+
+
 
 
         /*
@@ -140,6 +158,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.button_localupload:
                 Intent intent_localUpload = new Intent(MainActivity.this, LocalUploadActivity.class);
                 startActivity(intent_localUpload);
+                break;
+            case R.id.button_lovelist:
+                Intent intent_lovelist = new Intent(MainActivity.this, LovelistActivity.class);
+                startActivity(intent_lovelist);
+                break;
+            case R.id.button_collectlist:
+                Intent intent_collectlist = new Intent(MainActivity.this, CollectlistActivity.class);
+                startActivity(intent_collectlist);
                 break;
             //喜爱按钮响应
             /*

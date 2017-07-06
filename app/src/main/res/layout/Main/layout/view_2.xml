@@ -10,6 +10,19 @@
         android:background="#00000000"/>
 
     <Button
+        android:id="@+id/button_lovelist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="我的喜爱"/>
+
+    <Button
+        android:id="@+id/button_collectlist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="收藏列表"/>
+
+
+    <Button
         android:id="@+id/button_takeupload"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

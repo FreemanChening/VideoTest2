@@ -31,7 +31,7 @@ public class TitleLayout extends LinearLayout {
         titleEdit.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(),"You clicked Edit button",
+                Toast.makeText(getContext(),"You clicked Delete button",
                         Toast.LENGTH_SHORT).show();
 
             }
