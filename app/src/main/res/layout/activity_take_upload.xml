@@ -26,17 +26,20 @@
             android:layout_height="wrap_content"
             tools:layout_editor_absoluteY="0dp"
             tools:layout_editor_absoluteX="8dp" />
-            -->
+
 
     <SurfaceView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/camera_surfaceview"/>
-    <TextView android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:text="计时区域"
-        android:id="@+id/camera_time"/>
-    <LinearLayout android:layout_height="wrap_content"
+        -->
+    <ImageView
+        android:id="@+id/picture"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center_horizontal"/>
+   <LinearLayout android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal">

@@ -1,0 +1,12 @@
+<litepal>
+    <dbname value = "funny_video"/>
+
+    <version value="1"/>
+
+    <list>
+        <mapping class = "com.example.admin.videotest3.db.Video"/>
+
+
+    </list>
+
+</litepal>

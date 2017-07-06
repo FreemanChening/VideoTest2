@@ -1,0 +1,64 @@
+apply plugin: 'com.android.library'
+android {
+    signingConfigs {
+        DConfig {
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+            storeFile file('debug.keystore')
+            storePassword 'android'
+        }
+        RConfig {
+            keyAlias 'youku'
+            keyPassword 'qazsew'
+            storeFile file('liyh.jkey')
+            storePassword 'qazsew'
+        }
+        DConfig2 {
+            keyAlias 'abc'
+            keyPassword 'qazsew'
+            storeFile file('liyh3.jks')
+            storePassword 'qazsew'
+        }
+    }
+    compileSdkVersion 25
+    buildToolsVersion "25.0.0"
+
+    defaultConfig {
+        //applicationId "com.youku.cloud.demo"
+        minSdkVersion 9
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.RConfig
+        }
+        debug {
+            signingConfig signingConfigs.DConfig2
+        }
+    }
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs'];
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    //系统库
+    compile 'com.android.support:support-v4:25.0.1'
+    //公共库
+    compile 'com.alibaba:fastjson:1.1.56.android'
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+    //sdk
+    compile(name: 'YoukuPlayerOpenSDK-release', ext: 'aar')
+}

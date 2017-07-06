@@ -5,13 +5,18 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.admin.videotest3.R;
-import com.example.admin.videotest3.myclass.Fruit;
+import com.example.admin.videotest3.myclass.Thumbnail;
 import com.example.admin.videotest3.myclass.MyPagerAdapter;
+import com.example.admin.videotest3.myclass.ThumbnailAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,11 +35,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private View view1, view2;
 
-    private String[] data = { "Apple" , "Banana" , "Orange" , "Watermelon" ,
-            "pear" , "Grape" , "Pineapple" , "Strawberry" , "Cherry" , "Mango" ,
-            "Apple" , "Banana" , "Orange" , "Watermelon" , "pear" , "Grape" ,
-            "Pineapple" , "Strawberry" , "Cherry" , "Mango" };
-    private List<Fruit> fruitList = new ArrayList<>();
+    private List<Thumbnail> ThumbnailList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +46,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         initviews();
         initDatas();
         setTabLayout();
+
+        initNet();
 
     }
 
@@ -62,16 +65,39 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         view1 = mInflater.inflate(R.layout.view_1, null);
         view2 = mInflater.inflate(R.layout.view_2, null);
 
-        Button button1 = (Button) view1.findViewById(R.id.button1);
-        button1.setOnClickListener(this);
+
         Button button_takeUp = (Button) view2.findViewById(R.id.button_takeupload);
         Button button_localUp = (Button) view2.findViewById(R.id.button_localupload);
         button_takeUp.setOnClickListener(this);
         button_localUp.setOnClickListener(this);
 
+        initThumbnail();
+        ThumbnailAdapter adapter = new ThumbnailAdapter(MainActivity.this,R.layout.thumbnail_item,ThumbnailList);
+        ListView listView = (ListView) view1.findViewById(R.id.list_view);
+        /*
+        Button button_appreciate = (Button)view1.findViewById(R.id.button_appreciate);
+        Button button_collect = (Button)view1.findViewById(R.id.button_collect);
+        button_appreciate.setOnClickListener(this);
+        button_collect.setOnClickListener(this);*/
+        listView.setAdapter(adapter);
+        //Toast.makeText(MainActivity.this,"made",Toast.LENGTH_SHORT).show();
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id){
+                Thumbnail thumbnail = ThumbnailList.get(position);
+                //Toast.makeText(MainActivity.this,thumbnail.getTitle(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this,thumbnail.getId(),Toast.LENGTH_SHORT).show();
+
+                go2Player(thumbnail.getId()); // 跳转到播放界面
+                /*Intent i = new Intent(MainActivity.this, PlayActivity.class);
+                MainActivity.this.startActivity(i);*/
+            }
+        });
+
+
         /*
         initFruits();
-        FruitAdapter adapter = new FruitAdapter(this,R.layout.fruit_item,fruitList);
+        FruitAdapter adapter = new FruitAdapter(this,R.layout.thumbnail_item,fruitList);
         ListView listView = (ListView) view1.findViewById(R.id.list_view);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
@@ -82,10 +108,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
         */
-
-
-
-
         mViewList.add(view1);
         mViewList.add(view2);
 
@@ -100,22 +122,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         tabLayout.addTab(tabLayout.newTab().setText(mTitleList.get(1)));
 
 
+
         MyPagerAdapter mAdapter = new MyPagerAdapter(MainActivity.this, mViewList, mTitleList);
         viewPager.setAdapter(mAdapter);
         tabLayout.setupWithViewPager(viewPager);//tablayout和viewpager关联起来
         tabLayout.setTabsFromPagerAdapter(mAdapter);//给TabLayout设置适配器
 
 
-
-
     }
 
     public void onClick(View v){
         switch (v.getId()){
-            case R.id.button1:
-                Intent intent = new Intent(MainActivity.this, PlayerActivity.class);
-                startActivity(intent);
-                break;
             case R.id.button_takeupload:
                 Intent intent_takeUpstart = new Intent(MainActivity.this, TakeUploadActivity.class);
                 startActivity(intent_takeUpstart);
@@ -124,14 +141,47 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent intent_localUpload = new Intent(MainActivity.this, LocalUploadActivity.class);
                 startActivity(intent_localUpload);
                 break;
+            //喜爱按钮响应
+            /*
+            case R.id.button_appreciate:
+                Toast.makeText(MainActivity.this,"已确认喜爱",Toast.LENGTH_SHORT).show();
+                break;
+            //收藏按钮响应
+            case R.id.button_collect:
+                Toast.makeText(MainActivity.this,"已添加到收藏夹",Toast.LENGTH_SHORT).show();
+                break;*/
             default:
                 break;
-        }
-
-        ;
+        };
     }
 
+    private void initNet(){
 
+
+
+    }
+
+    private  void  initThumbnail(){
+        for (int i =0; i<1;i++){
+            Thumbnail list_1 = new Thumbnail(R.drawable.thumbnail1,"回归后十佳香港电影","XMjg1NjcyMzQ2MA==");
+            ThumbnailList.add(list_1);
+            Thumbnail list_2 = new Thumbnail(R.drawable.thumbnail2,"张全蛋做客深夜食堂曝光隐藏恋情","XMjg0MzAxMTQ4OA==");
+            ThumbnailList.add(list_2);
+            Thumbnail list_3 = new Thumbnail(R.drawable.thumbnail3,"中国潜艇已经甩美国八条街？","XMjg1NDYzODM3Mg==");
+            ThumbnailList.add(list_3);
+            Thumbnail list_4 = new Thumbnail(R.drawable.thumbnail4,"夏日雨季吃什么清热","XMjg2MzU1MDAzMg==");
+            ThumbnailList.add(list_4);
+            Thumbnail list_5 = new Thumbnail(R.drawable.thumbnail5,"下雨天外卖迟到该投诉吗","XMjg2MjIyODcyMA==");
+            ThumbnailList.add(list_5);
+        }
+    }
+
+    private void go2Player(String id) {
+        Intent i = new Intent(MainActivity.this, PlayActivity.class);
+        i.putExtra("vid", id);
+        MainActivity.this.startActivity(i);
+    }
+/**
     private  void  initFruits(){
         for (int i =0; i<2;i++){
             Fruit apple = new Fruit("Apple",R.drawable.apple);
@@ -156,6 +206,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             fruitList.add(mango);
         }
     }
-
+*/
 
 }

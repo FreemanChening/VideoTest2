@@ -7,8 +7,10 @@
     tools:context="com.example.admin.videotest3.chActivity.LocalUploadActivity">
 
     <com.example.admin.videotest3.myclass.TitleLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="8dp">
     </com.example.admin.videotest3.myclass.TitleLayout>
 
 

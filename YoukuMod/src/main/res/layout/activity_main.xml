@@ -1,0 +1,99 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="请先申请和替换Manifest中的clientID和secret\n技术问题优酷官方QQ群 ：287097518\n共享收益优酷官方QQ群 ：433958013"
+            android:textColor="#ff0000" />
+
+        <Button
+            android:id="@+id/btn_player"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="视频播放" />
+
+        <Button
+            android:id="@+id/btn_tablet"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="平板模式(自定义横竖屏例子)" />
+
+        <Button
+            android:id="@+id/btn_test"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="Test" />
+
+        <Button
+            android:id="@+id/btn_downloaded"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="打开下载测试" />
+
+        <RadioGroup
+            android:id="@+id/rbgrp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="普通" />
+
+        </RadioGroup>
+
+        <com.youku.cloud.demo.widget.MySpanner
+            android:id="@+id/youkuvid"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:hint="youku video id" />
+
+        <EditText
+            android:id="@+id/vid"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:hint="video id" />
+
+        <EditText
+            android:id="@+id/et_password"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:hint="video password(只有私密托管用户输入才有效)" />
+
+        <EditText
+            android:id="@+id/et_ak"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:hint="client id" />
+
+        <EditText
+            android:id="@+id/et_sk"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:hint="client secret" />
+    </LinearLayout>
+
+</ScrollView>
