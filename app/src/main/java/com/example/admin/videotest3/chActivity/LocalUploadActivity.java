@@ -17,5 +17,7 @@ public class LocalUploadActivity extends AppCompatActivity {
             actionBar.hide();
         }
 
+
+
     }
 }

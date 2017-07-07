@@ -21,10 +21,6 @@ import com.youku.cloud.player.YoukuPlayerView;
  * 播放器播放界面
  */
 public class PlayActivity extends PlayerActivity {
-
-
-
-
     private String vid;
     private String password=null;
     private boolean local = false;

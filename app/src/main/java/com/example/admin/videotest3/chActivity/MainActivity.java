@@ -75,7 +75,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         button_lovelist.setOnClickListener(this);
         button_collectlist.setOnClickListener(this);
 
+        /*导入Video的thumbnail
+        ListView也一一对应
 
+        */
         initThumbnail();
         ThumbnailAdapter adapter = new ThumbnailAdapter(MainActivity.this,R.layout.thumbnail_item,ThumbnailList);
         ListView listView = (ListView) view1.findViewById(R.id.list_view);
